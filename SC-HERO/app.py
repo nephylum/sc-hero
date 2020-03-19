@@ -10,10 +10,22 @@ client = MongoClient(MONGO_URI)
 
 def create_app():
     app = Flask(__name__)
+    app.config['MONGO_URI'] = config('MONGO_URI')
+    app.config['ACCESS_KEY'] = config('ACCESS_KEY')
+
+
+    @app.route("/")
+    def root():
+        return "nothing here"
 
     @app.route(f"/{ACCESS_KEY}/singlecityWiki/<num>")
     def singlecityWiki(num):
         doc = client.SingleCity.WikiReal.find_one({'_id': int(num)})
+        return jsonify(doc)
+
+    @app.route(f"/{ACCESS_KEY}/wikisum/<num>")
+    def wikisum(num):
+        doc = client.SingleCity.wikidata.find_one({'_id': int(num)})
         return jsonify(doc)
 
     @app.route(f"/{ACCESS_KEY}/singlecityYelp/<num>")
