@@ -6,6 +6,14 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
+flask = "*"
+flask-sqlalchemy = "*"
+gunicorn = "*"
+python-dotenv = "*"
+python-decouple = "*"
+pipfile = "*"
+pymongo = "*"
+dnspython = "*"
 
 [requires]
 python_version = "3.7"
