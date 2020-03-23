@@ -32,5 +32,8 @@ def create_app():
     def singlecityYelp(num):
         doc = client.SingleCity.yelp_data.find_one({'_id': str(num)})
         return jsonify(doc)
-
+    @app.route(f"/{ACCESS_KEY}/statecrime/<sa>")
+    def statecrime(sa):
+        doc = client.SingleCity.statecrime.find_one({'_id': str(sa)})
+        return jsonify(doc)
     return app
