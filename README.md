@@ -1,6 +1,8 @@
-# sc-hero
+# Single City - Heroku
 
-A flask app that is used as a temporary backend for citrics.io
+-A self-made emergency backup for citrics.io
+
+A flask app run on heroku that was meant to be used as a temporary backend for citrics.io.
 
 Routes:
 
